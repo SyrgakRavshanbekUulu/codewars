@@ -15,8 +15,8 @@
 > ipToInt32("128.32.10.1") => 2149583361
 
 # Solitions: 
-```
+```c
   function ipToInt32(ip){
-    return parseInt(ip.split('.').map(i => ('00000000' + (+i).toString(2)).slice(-8)).join(''), 2)
+    return parseInt(ip.split('.').map(i => ('00000000' + (+i).toString(2)).slice(-8)).join(""), 2)
   }
 ```
