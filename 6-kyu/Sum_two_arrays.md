@@ -14,7 +14,6 @@ The twist is that (for example) [3,2,9] does not equal 3 + 2 + 9, it would equal
 [3,2,9],[1,2] --> [3,4,1]
 [4,7,3],[1,2,3] --> [5,9,6]
 [1],[5,7,6] --> [5,7,7]
-
 ```
 
 > If both arrays are empty, return an empty array.
@@ -27,14 +26,16 @@ The twist is that (for example) [3,2,9] does not equal 3 + 2 + 9, it would equal
 
 ```c
 
-function dup(s) {
-  return s.map((str) => {
-    let res = "";
-    for (let i = 0; i < str.length; i++) {
-      if (str[i] != str[i + 1]) res += str[i];
-    }
-    return res;
+function addArrays(array1, array2) {
+  if (array1.length === 0 && array2.length === 0) return [];
+  let arrayToNumber1 = parseInt(array1.join("") || 0);
+  let arrayToNumber2 = parseInt(array2.join("") || 0);
+  const sum = arrayToNumber1 + arrayToNumber2;
+  if (sum < 0) return (-1 * sum).toString().split("").map((a, i) => {
+    if(i === 0) return -a;
+    return +a;
   })
-};
+  return sum.toString().split("").map(a => +a);
+}
 
 ```
